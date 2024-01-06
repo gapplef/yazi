@@ -35,6 +35,7 @@ parts:
       - zoxide
   
   test:
+    after: yazi
     plugin: nil
     override-build: ''
     override-prime: ls
