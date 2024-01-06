@@ -18,17 +18,17 @@ architectures:
 
 apps:
   yazi:
-    command: yazi
+    command: bin/yazi
     plugs: [ home, removable-media ]
 
 parts:
   yazi:
-    plugin: nil
+    plugin: rust
     source: .
-    override-build: |
-      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-      source "$HOME/.cargo/env"
-      cargo build --release
+    #override-build: |
+    #  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    #  source "$HOME/.cargo/env"
+    #  cargo build --release
     stage-packages:
       - fd-find
       - ripgrep
