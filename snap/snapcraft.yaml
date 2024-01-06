@@ -36,6 +36,6 @@ parts:
   
   test:
     plugin: nil
-    override-build: |
-      ls $SNAP/stage
-      ls $SNAP/prime
+    override-build: ''
+    override-prime: ls
+    override-stage: ls
