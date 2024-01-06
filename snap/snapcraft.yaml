@@ -18,7 +18,7 @@ architectures:
 
 apps:
   yazi:
-    command: usr/bin/yazi
+    command: bin/yazi
     plugs: [ home, removable-media ]
 
 parts:
