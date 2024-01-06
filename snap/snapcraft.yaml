@@ -40,5 +40,7 @@ parts:
     override-build: ''
     override-stage: ''
     override-prime: |
+      pwd
       ls -lh
+      move yazi usr/bin
       ls -lh usr/bin
