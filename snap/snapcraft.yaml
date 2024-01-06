@@ -40,5 +40,6 @@ parts:
     override-build: ''
     override-prime: ''
     override-stage: |
-      ls -l usr
-      ls -l yazi
+      ls -lh
+      ls -lh usr/bin
+      ls -lh yazi
