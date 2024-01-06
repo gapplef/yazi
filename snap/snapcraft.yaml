@@ -42,5 +42,5 @@ parts:
     override-prime: |
       pwd
       ls -lh
-      move yazi usr/bin
+      mv yazi usr/bin
       ls -lh usr/bin
