@@ -38,8 +38,7 @@ parts:
     after: [ yazi ]
     plugin: nil
     override-build: ''
-    override-prime: ''
-    override-stage: |
+    override-stage: ''
+    override-prime: |
       ls -lh
-      mv yazi usr/bin
       ls -lh usr/bin
