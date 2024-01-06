@@ -18,7 +18,7 @@ architectures:
 
 apps:
   yazi:
-    command: $SNAP/yazi
+    command: usr/bin/yazi
     plugs: [ home, removable-media ]
 
 parts:
@@ -41,5 +41,5 @@ parts:
     override-prime: ''
     override-stage: |
       ls -lh
+      mv yazi usr/bin
       ls -lh usr/bin
-      ls -lh yazi
