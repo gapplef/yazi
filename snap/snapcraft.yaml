@@ -23,8 +23,12 @@ apps:
 
 parts:
   yazi:
-    plugin: rust
+    plugin: nil
     source: .
+    override-build: |
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      cd yazi
+      cargo build --release
     stage-packages:
       - fd-find
       - ripgrep
