@@ -34,8 +34,8 @@ parts:
       - ripgrep
       - zoxide
   
-   test:
-     plugin: nil
-     override-build: |
-     	ls $SNAP/stage
-     	ls $SNAP/prime
+  test:
+    plugin: nil
+    override-build: |
+      ls $SNAP/stage
+      ls $SNAP/prime
