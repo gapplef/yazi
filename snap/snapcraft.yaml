@@ -38,9 +38,9 @@ parts:
       #ls -alh
       #mv .fzf/bin /target
       cargo build --release
-      ls -alh
-      ls -alh target
-      ls -alh target/release
+      #ls -alh
+      #ls -alh target
+      #ls -alh target/release
     # build-packages:
     #  - git
     #override-stage: |
@@ -55,6 +55,5 @@ parts:
     after: [ yazi ]
     plugin: nil
     override-build: ''
-    override-stage: ''
-    override-prime: |
-      ls -lh
+    override-stage: ls -alh
+    override-prime: ls -alh
