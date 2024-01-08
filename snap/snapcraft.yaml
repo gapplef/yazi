@@ -39,8 +39,8 @@ parts:
       #mv .fzf/bin /target
       cargo build --release
       ls -alh
-      ls -alh /target
-      ls -alh /target/release
+      ls -alh target
+      ls -alh target/release
     # build-packages:
     #  - git
     #override-stage: |
