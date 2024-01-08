@@ -29,10 +29,8 @@ parts:
     #  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     #  source "$HOME/.cargo/env"
     #  cargo build --release
-    stage-packages:
-      - fd-find
-      - ripgrep
-      - zoxide
+    # build-packages:
+    #  - git
   
   fix-path:
     after: [ yazi ]
@@ -42,3 +40,13 @@ parts:
     override-prime: |
       ln yazi usr/bin
 
+  more-dependencies:
+    plugin: nil
+    override-build: ''
+    override-stage: ''
+    override-prime: |
+      cargo install fd-find --root 
+      cargo install ripgrep --root 
+      cargo install zoxide --root 
+      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      ~/.fzf/install --bin
