@@ -19,7 +19,7 @@ architectures:
 apps:
   yazi:
     command: usr/bin/yazi
-    plugs: [ home, removable-media ]
+    # plugs: [ home, removable-media ]
 
 parts:
   yazi:
@@ -38,6 +38,7 @@ parts:
     override-build: ''
     override-stage: ''
     override-prime: |
+      ls -lh
       ln yazi usr/bin
 
   more-dependencies:
