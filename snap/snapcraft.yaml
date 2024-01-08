@@ -29,11 +29,13 @@ parts:
       curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
       source "$HOME/.cargo/env"
       cargo build --release
-      cargo install fd-find --root /usr/bin
-      cargo install ripgrep --root /usr/bin
-      cargo install zoxide --root /usr/bin
+      ls -lh
+      #cargo install fd-find --root /usr
+      #cargo install ripgrep --root /usr
+      #cargo install zoxide --root /usr
       git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       ~/.fzf/install --bin
+      ls -lh
     # build-packages:
     #  - git
     #override-stage: |
