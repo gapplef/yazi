@@ -31,10 +31,10 @@ parts:
     #  cargo build --release
     # build-packages:
     #  - git
-      
-  fix-path:
-    after: [ yazi ]
-    plugin: nil
-    override-build: ''
     override-stage: |
-     ls -lh
+      cargo install fd-find --root 
+      cargo install ripgrep --root 
+      cargo install zoxide --root 
+      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      ~/.fzf/install --bin
+      mv yazi usr/bin
