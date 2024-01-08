@@ -38,8 +38,8 @@ parts:
     override-build: ''
     override-stage: ''
     override-prime: |
-      ls -lh
-      ln yazi usr/bin
+      mkdir -p usr/bin
+      mv yazi usr/bin
 
   more-dependencies:
     plugin: nil
