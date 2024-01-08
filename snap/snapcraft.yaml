@@ -25,9 +25,7 @@ parts:
   yazi:
     plugin: rust
     source: .
-    override-build: |
-      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-      source "$HOME/.cargo/env"
+    #override-build: |
       #ls -alh
       #cargo install fd-find --root /target
       #cargo install ripgrep --root /target
@@ -37,7 +35,7 @@ parts:
       #~/.fzf/install --bin
       #ls -alh
       #mv .fzf/bin /target
-      cargo build --release
+      #cargo build --release
       #ls -alh
       #ls -alh target
       #ls -alh target/release
