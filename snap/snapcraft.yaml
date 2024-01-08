@@ -25,16 +25,30 @@ parts:
   yazi:
     plugin: rust
     source: .
-    #override-build: |
-    #  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    #  source "$HOME/.cargo/env"
-    #  cargo build --release
-    # build-packages:
-    #  - git
-    override-stage: |
+    override-build: |
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      source "$HOME/.cargo/env"
+      cargo build --release
       cargo install fd-find --root 
       cargo install ripgrep --root 
       cargo install zoxide --root 
       git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       ~/.fzf/install --bin
-      mv yazi usr/bin
+    # build-packages:
+    #  - git
+    #override-stage: |
+    #  cargo install fd-find --root 
+    #  cargo install ripgrep --root 
+    #  cargo install zoxide --root 
+    #  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    #  ~/.fzf/install --bin
+    #  mv yazi usr/bin
+
+  test:
+    after: [ yazi ]
+    plugin: nil
+    override-build: ''
+    override-stage: ''
+    override-prime: |
+      ls -lh
+      ls -lh usr/bin
