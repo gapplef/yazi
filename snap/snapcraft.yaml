@@ -28,18 +28,19 @@ parts:
     override-build: |
       curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
       source "$HOME/.cargo/env"
-      ls -lh
+      ls -alh
       cargo install fd-find --root /target
       #cargo install ripgrep --root /target
       #cargo install zoxide --root /target
+      ls -alh
       git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       ~/.fzf/install --bin
-      ls -lh
+      ls -alh
       mv .fzf/bin /target
       cargo build --release
-      ls -lh
-      ls -lh /target
-      ls -lh /target/release
+      ls -alh
+      ls -alh /target
+      ls -alh /target/release
     # build-packages:
     #  - git
     #override-stage: |
