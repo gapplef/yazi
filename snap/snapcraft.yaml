@@ -18,7 +18,7 @@ architectures:
 
 apps:
   yazi:
-    command: usr/bin/yazi
+    command: yazi
     # plugs: [ home, removable-media ]
 
 parts:
@@ -31,23 +31,10 @@ parts:
     #  cargo build --release
     # build-packages:
     #  - git
-  
+      
   fix-path:
     after: [ yazi ]
     plugin: nil
     override-build: ''
-    override-stage: ''
-    override-prime: |
-      mkdir -p usr/bin
-      mv yazi usr/bin
-
-  more-dependencies:
-    plugin: nil
-    override-build: ''
-    override-stage: ''
-    override-prime: |
-      cargo install fd-find --root 
-      cargo install ripgrep --root 
-      cargo install zoxide --root 
-      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-      ~/.fzf/install --bin
+    override-stage: |
+     ls -lh
