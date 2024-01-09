@@ -25,20 +25,19 @@ parts:
   yazi:
     plugin: rust
     source: .
-    #override-build: |
-      #ls -alh
-      #cargo install fd-find --root /target
-      #cargo install ripgrep --root /target
-      #cargo install zoxide --root /target
-      #ls -alh
-      #git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-      #~/.fzf/install --bin
-      #ls -alh
-      #mv .fzf/bin /target
-      #cargo build --release
-      #ls -alh
+    override-build: |
+      cargo build --release
       #ls -alh target
       #ls -alh target/release
+      ls -alh
+      cargo install fd-find --root /usr
+      cargo install ripgrep --root /usr
+      cargo install zoxide --root /usr
+      ls -alh
+      git clone --depth 1 https://github.com/junegunn/fzf.git fzf
+      fzf/install --bin
+      #mv fzf/bin/ /bin/
+      craftctl default
     # build-packages:
     #  - git
     #override-stage: |
