@@ -13,8 +13,8 @@ confinement: classic
 architectures:
   - build-on: amd64
     build-for: amd64
-  - build-on: amd64
-    build-for: arm64
+  #- build-on: amd64
+  #  build-for: arm64
 
 apps:
   yazi:
@@ -26,10 +26,9 @@ parts:
     plugin: rust
     source: .
     override-build: |
-      cargo build --release
-      #ls -alh target
-      #ls -alh target/release
+      craftctl default
       ls -alh
+      ls -alh target/release
       cargo install fd-find --root /usr
       cargo install ripgrep --root /usr
       cargo install zoxide --root /usr
@@ -37,20 +36,9 @@ parts:
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
       fzf/install --bin
       #mv fzf/bin/ /bin/
+    override-stage: |
       craftctl default
-    # build-packages:
-    #  - git
-    #override-stage: |
-    #  cargo install fd-find --root 
-    #  cargo install ripgrep --root 
-    #  cargo install zoxide --root 
-    #  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    #  ~/.fzf/install --bin
-    #  mv yazi usr/bin
-
-  test:
-    after: [ yazi ]
-    plugin: nil
-    override-build: ''
-    override-stage: ls -alh
-    override-prime: ls -alh
+      ls -alh
+    override-prime: |
+      craftctl default
+      ls -alh
