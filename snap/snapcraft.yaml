@@ -19,8 +19,15 @@ architectures:
 apps:
   yazi:
     command: yazi
-    # plugs: [ home, removable-media ]
-  
+  fd:
+    command: bin/fd
+  rg:
+    command: bin/rg
+  z:
+    command: bin/zoxide
+  fzf:
+    command: bin/fzf
+
 parts:
   yazi:
     plugin: rust
