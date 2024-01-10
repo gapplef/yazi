@@ -38,4 +38,4 @@ parts:
       - ffmpegthumbnailer
       - unar
       - jq
-      - poppler
+      - libpoppler118
