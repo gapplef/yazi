@@ -8,7 +8,7 @@ description: |
 license: MIT
 
 grade: stable
-confinement: classic
+confinement: strict
 
 architectures:
   - build-on: amd64
@@ -18,9 +18,11 @@ architectures:
 
 apps:
   yazi:
-    command: bin/yazi
+    command: yazi
     # plugs: [ home, removable-media ]
-
+  fd:
+    command: bin/fd
+  
 parts:
   yazi:
     plugin: rust
@@ -32,7 +34,7 @@ parts:
       cargo install zoxide --root $CRAFT_PART_INSTALL
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
       fzf/install --bin && mv fzf/bin/fzf $CRAFT_PART_INSTALL/bin/
-      cd $CRAFT_PART_INSTALL && mv yazi bin/
+      # cd $CRAFT_PART_INSTALL && mv yazi bin/
     override-stage: |
       craftctl default
       ls -alh 
