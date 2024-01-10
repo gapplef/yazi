@@ -31,9 +31,8 @@ parts:
       cargo install ripgrep --root $CRAFT_PART_INSTALL
       cargo install zoxide --root $CRAFT_PART_INSTALL
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
-      fzf/install --bin && mv fzf/bin/fzf $CRAFT_PART_INSTALL/bin
-      pwd
-      cd $CRAFT_PART_INSTALL && mv yazi /bin
+      fzf/install --bin && mv fzf/bin/fzf $CRAFT_PART_INSTALL/bin/
+      cd $CRAFT_PART_INSTALL && mv yazi bin/
     override-stage: |
       craftctl default
       ls -alh 
