@@ -20,8 +20,6 @@ apps:
   yazi:
     command: yazi
     plugs: [ home, removable-media ]
-  fd:
-    command: bin/fd
   
 parts:
   yazi:
@@ -35,11 +33,9 @@ parts:
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
       fzf/install --bin && mv fzf/bin/fzf $CRAFT_PART_INSTALL/bin/
       # cd $CRAFT_PART_INSTALL && mv yazi bin/
-    override-stage: |
-      craftctl default
-      ls -alh 
-      ls -alh bin
-    override-prime: |
-      craftctl default
-      ls -alh
-      ls -alh bin
+    stage-packages:
+      - file
+      - ffmpegthumbnailer
+      - unar
+      - jq
+      - poppler
