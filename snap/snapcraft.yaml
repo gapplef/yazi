@@ -27,20 +27,19 @@ parts:
     source: .
     override-build: |
       craftctl default
-      ls -alh
-      ls -alh target/release
       ls -alh $CRAFT_PART_INSTALL
-      cargo install fd-find --root /usr
-      cargo install ripgrep --root /usr
-      cargo install zoxide --root /usr
+      #cargo install fd-find --root $CRAFT_PART_INSTALL
+      #cargo install ripgrep --root $CRAFT_PART_INSTALL
+      #cargo install zoxide --root $CRAFT_PART_INSTALL
+      cargo install fd-find
+      cargo install ripgrep
+      cargo install zoxide
+      ls -alh
       ls -alh /
       ls -alh /usr/bin
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
       fzf/install --bin
-      ls -alh fzf/bin
-      ls -alh /usr/bin
-      ls -alh /bin
-      #mv fzf/bin/ /bin/
+      #mv fzf/bin/ $CRAFT_PART_INSTALL
     override-stage: |
       craftctl default
       ls -alh
