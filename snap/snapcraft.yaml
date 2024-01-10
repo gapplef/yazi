@@ -8,7 +8,7 @@ description: |
 license: MIT
 
 grade: stable
-confinement: strict
+confinement: classic
 
 architectures:
   - build-on: amd64
@@ -19,7 +19,7 @@ architectures:
 apps:
   yazi:
     command: yazi
-    plugs: [ home, removable-media ]
+    # plugs: [ home, removable-media ]
   
 parts:
   yazi:
@@ -33,9 +33,3 @@ parts:
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
       fzf/install --bin && mv fzf/bin/fzf $CRAFT_PART_INSTALL/bin/
       # cd $CRAFT_PART_INSTALL && mv yazi bin/
-    stage-packages:
-      - file
-      - ffmpegthumbnailer
-      - unar
-      - jq
-      - libpoppler118
