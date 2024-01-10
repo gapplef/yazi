@@ -21,14 +21,6 @@ apps:
     command: yazi
     environment:
       PATH: $SNAP/bin:$PATH
-  fd:
-    command: bin/fd
-  rg:
-    command: bin/rg
-  z:
-    command: bin/zoxide
-  fzf:
-    command: bin/fzf
 
 parts:
   yazi:
