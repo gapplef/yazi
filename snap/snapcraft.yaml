@@ -19,7 +19,7 @@ architectures:
 apps:
   yazi:
     command: yazi
-    # plugs: [ home, removable-media ]
+    plugs: [ home, removable-media ]
   fd:
     command: bin/fd
   
