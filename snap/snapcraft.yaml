@@ -19,6 +19,8 @@ architectures:
 apps:
   yazi:
     command: yazi
+    environment:
+      PATH: $SNAP/bin:$PATH
   fd:
     command: bin/fd
   rg:
@@ -39,4 +41,3 @@ parts:
       cargo install zoxide --root $CRAFT_PART_INSTALL
       git clone --depth 1 https://github.com/junegunn/fzf.git fzf
       fzf/install --bin && mv fzf/bin/fzf $CRAFT_PART_INSTALL/bin/
-      # cd $CRAFT_PART_INSTALL && mv yazi bin/
