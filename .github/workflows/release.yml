@@ -1,6 +1,7 @@
 name: Release
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - "v[0-9]+.[0-9]+.[0-9]+"
@@ -52,7 +53,7 @@ jobs:
         run: cargo build --release --locked --target ${{ matrix.target }}
 
       - name: Build-snap
-        use: snapcore/action-build@v1
+        uses: snapcore/action-build@v1
       
       - name: Pack artifacts [Linux & macOS]
         if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
