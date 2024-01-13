@@ -26,6 +26,7 @@ parts:
     plugin: rust
     source: .
     override-pull: |
+      craftctl default
       pwd
       ls -alh
       echo $(git describe --tags --abbrev=0)
