@@ -12,7 +12,9 @@ confinement: classic
 
 architectures:
   - build-on: amd64
+    build-for: amd64
 #  - build-on: arm64
+#    build-for: arm64
 
 
 apps:
@@ -24,7 +26,7 @@ apps:
 parts:
   yazi:
     plugin: rust
-    source: .git
+    source: https://github.com/sxyazi/yazi.git
     override-build: |
       craftctl default
       craftctl set version=$(git describe --tags --abbrev=0)
