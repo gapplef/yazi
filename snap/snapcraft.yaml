@@ -24,7 +24,7 @@ apps:
 parts:
   yazi:
     plugin: rust
-    source: .
+    source: https://github.com/gapplef/yazi.git
     override-pull: |
       craftctl default
       pwd
