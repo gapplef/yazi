@@ -12,7 +12,7 @@ confinement: classic
 
 architectures:
   - build-on: amd64
-  - build-on: arm64
+#  - build-on: arm64
 
 
 apps:
@@ -24,16 +24,9 @@ apps:
 parts:
   yazi:
     plugin: rust
-    source: https://github.com/gapplef/yazi.git
-    override-pull: |
-      craftctl default
-      pwd
-      ls -alh
-      echo $(git describe --tags --abbrev=0)
+    source: .git
     override-build: |
       craftctl default
-      pwd
-      ls -alh
       craftctl set version=$(git describe --tags --abbrev=0)
       cargo install fd-find --root $CRAFT_PART_INSTALL
       cargo install ripgrep --root $CRAFT_PART_INSTALL
