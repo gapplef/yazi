@@ -53,6 +53,7 @@ jobs:
         run: cargo build --release --locked --target ${{ matrix.target }}
 
       - name: Build-snap
+        if: matrix.os == 'ubuntu-latest'
         uses: snapcore/action-build@v1
       
       - name: Pack artifacts [Linux & macOS]
