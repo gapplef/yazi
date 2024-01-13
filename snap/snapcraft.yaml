@@ -25,9 +25,11 @@ parts:
   yazi:
     plugin: rust
     source: .
+    override-pull: |
+      craftctl default
+      craftctl set version=$(git describe --tags --abbrev=0)
     override-build: |
       craftctl default
-      craftctl set version=$(git describe --tags --abbrev=10)
       cargo install fd-find --root $CRAFT_PART_INSTALL
       cargo install ripgrep --root $CRAFT_PART_INSTALL
       cargo install zoxide --root $CRAFT_PART_INSTALL
