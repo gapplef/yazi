@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
-            target: linux-snap
+          #- os: ubuntu-latest
+          #  target: linux-snap
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
           - os: ubuntu-latest
@@ -49,14 +49,13 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Build
-        if: matrix.target != 'linux-snap'
         env:
           YAZI_GEN_COMPLETIONS: true
           CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/aarch64-linux-gnu-gcc
         run: cargo build --release --locked --target ${{ matrix.target }}
 
       - name: Build-snap
-        if: matrix.target == 'linux-snap'
+        if: matrix.target == 'x86_64-unknown-linux-gnu'
         uses: snapcore/action-build@v1
       
       - name: Pack artifacts [Linux & macOS]
