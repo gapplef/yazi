@@ -49,6 +49,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Build
+        if: matrix.target != 'linux-snap'
         env:
           YAZI_GEN_COMPLETIONS: true
           CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/aarch64-linux-gnu-gcc
