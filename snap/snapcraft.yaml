@@ -26,10 +26,10 @@ apps:
 parts:
   yazi:
     plugin: rust
-    source: https://github.com/sxyazi/yazi.git
+    source: .
     override-build: |
       craftctl default
-      craftctl set version=$(git describe --tags --abbrev=0)
+      echo $(git describe --tags --abbrev=0)
       cargo install fd-find --root $CRAFT_PART_INSTALL
       cargo install ripgrep --root $CRAFT_PART_INSTALL
       cargo install zoxide --root $CRAFT_PART_INSTALL
