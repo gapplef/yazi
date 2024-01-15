@@ -1,6 +1,7 @@
 name: yazi
 base: core22
 adopt-info: yazi
+version: 0.1.6
 summary: Blazing fast terminal file manager
 description: |
     Yazi, which means "duck", is a terminal file manager written in Rust, based on non-blocking async I/O.
@@ -30,7 +31,7 @@ parts:
     source-type: git
     override-build: |
       craftctl default
-      #craftctl set version=$(git describe --tags --abbrev=0)
+      craftctl set version=$(git describe --tags --abbrev=0)
       echo $(git describe --tags --abbrev=0)
       git branch -v
       ls -alh
