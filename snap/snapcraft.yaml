@@ -26,12 +26,13 @@ apps:
 parts:
   yazi:
     plugin: rust
-    source: ..
+    source: .
     source-type: git
     override-build: |
       craftctl default
       #craftctl set version=$(git describe --tags --abbrev=0)
       echo $(git describe --tags --abbrev=0)
+      git branch -v
       ls -alh
       cargo install fd-find --root $CRAFT_PART_INSTALL
       cargo install ripgrep --root $CRAFT_PART_INSTALL
