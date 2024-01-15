@@ -26,7 +26,7 @@ apps:
 parts:
   yazi:
     plugin: rust
-    source: .
+    source: https://github.com/gapplef/yazi.git
     source-type: git
     override-build: |
       craftctl default
