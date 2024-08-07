@@ -21,6 +21,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: snap-${{matrix.arch}}
-          # path: ${{ steps.snapcraft.outputs.snap }}
-          path: yazi*.snap
+          path: ${{ steps.snapcraft.outputs.snap }}
+          # path: yazi*.snap
           retention-days: 1
+
+      - name: Verify snapcraft snap
+        run: sudo snap install --dangerous --classic ${{ steps.build-snapcraft.outputs.snap }}
