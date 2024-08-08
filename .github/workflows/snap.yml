@@ -13,18 +13,17 @@ jobs:
 
     strategy:
       matrix:
-        arch: [arm64]
+        arch: [amd64, arm64]
           
     steps:
       - uses: actions/checkout@v4
       - uses: snapcore/action-build@v1
-        id: build-snap
       - uses: actions/upload-artifact@v4
         with:
           name: snap-${{matrix.arch}}
-          path: ${{ steps.build-snap.outputs.snap }}
-          # path: yazi*.snap
+          # path: ${{ steps.build-snap.outputs.snap }}
+          path: yazi*.snap
           retention-days: 1
 
       - name: Verify snap
-        run: sudo snap install --dangerous --classic ${{ steps.build-snap.outputs.snap }}
+        run: sudo snap install --dangerous --classic yazi*.snap
