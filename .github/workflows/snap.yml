@@ -23,7 +23,7 @@ jobs:
           name: snap-${{matrix.arch}}
           # path: ${{ steps.build-snap.outputs.snap }}
           path: yazi*.snap
-          retention-days: 1
+          retention-days: 2
 
       #- name: Verify snap
       #  run: sudo snap install --dangerous --classic yazi*.snap
