@@ -5,7 +5,7 @@ on:
 
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   build-snap-package:
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        arch: [arm64]
+        arch: [amd64, arm64]
           
     steps:
       - uses: actions/checkout@v4
