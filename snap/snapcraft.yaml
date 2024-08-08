@@ -10,7 +10,7 @@ grade: stable
 confinement: classic
 
 platforms:
-  amd64:
+  # amd64:
   arm64:
 
 apps:
