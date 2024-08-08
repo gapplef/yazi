@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: snapcore/action-build@v1
         with:
-          snapcraft-args: "--build-for=${{ matrix.arch }}"
+          snapcraft-args: --build-for=${{ matrix.arch }}
       - uses: actions/upload-artifact@v4
         with:
           name: snap-${{matrix.arch}}
