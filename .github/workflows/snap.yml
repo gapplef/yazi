@@ -18,6 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: snapcore/action-build@v1
+        id: build-snap
       - uses: actions/upload-artifact@v4
         with:
           name: snap-${{matrix.arch}}
